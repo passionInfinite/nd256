@@ -10,4 +10,8 @@ To build the tree is also `O(2m - 1)`
 
 so worst case time complexity is `O(n)`
 
-Decoding part takes worst case time complexity of O(logn) to traverse the tree and generate the codes.
+Decoding part takes worst case time complexity of O(logn) to traverse the tree and generate the codes. The space complexity for this solution is
+1. To store m unique characters from the input string in priority queue is O(m)
+2. To generate the huffman tree takes O(m)
+3. To store cache for the prefix codes will be O(m) where m remains unique characters.
+So overall the space complexity will be O(m) where m is the unique elements from the input string but in worst case scenario where all the characters are unique the space complexity will become O(n) where n is number of elements in the input string.

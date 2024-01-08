@@ -41,6 +41,19 @@ class BlockChain:
         else:
             self.tail.next = node
             self.tail = node
+    
+    def display(self):
+        current_node = self.head
+        index = 1
+        while current_node:
+            print("Test Block #{0}".format(index))
+            print("Timestamp:", current_node.block.timestamp)
+            print("Data:", current_node.block.data)
+            print("SHA256 Hash:", current_node.block.hash)
+            print("Previous Hash:", current_node.block.hash)
+            print("--------------------------------------------")
+            current_node = current_node.next
+            index += 1
 
 
 # Test Case 1
@@ -72,3 +85,8 @@ assert isinstance(blockchain.tail, Node)
 assert isinstance(blockchain.tail.block, Block)
 assert blockchain.head.next is not None
 assert blockchain.tail.next is None
+
+# Ads third block
+blockchain.addBlock('Hi this is my third block')
+# Prints the blocks of information
+blockchain.display()
