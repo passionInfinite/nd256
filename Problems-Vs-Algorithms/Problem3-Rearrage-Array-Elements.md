@@ -1,0 +1,5 @@
+First step is to sort the array and in this program I have used heap sort.
+
+Once the array is sorted, iterate over and construct the num_1 and num_2 numbers. If the length of the sorted array is odd then take the last element as the first element of the num_1 and remove the element from the array using pop(). We continue traversing from behind to the start of the array so that the order becomes largest to smallest digit. While iterating append those digits (converting to str to join later) to num_1 and num_2 alternatively. This will generate two numbers which has the largest possible sum.
+
+The timecomplexity is O(nlogn) including the sorting using heap and generating the numbers. Whereas the space complexity will be O(n) because we generate two arrays (num_1) and (num_2) totalling the length of the input array.

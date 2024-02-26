@@ -1,0 +1,3 @@
+Perform binary search instead of linear search. For each iteration of binary search we calculate the middle and the square of the middle was compared with the target value. If the result (square of middle) is less then the output number would be between start and middle otherwise it will be between middle and end.
+
+Thus the time complexity of this algorithm is same as Binary search (O(logn)). Space Complexity remains O(1) as we are not creating any additional array or anything.

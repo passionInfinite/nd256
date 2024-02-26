@@ -1,0 +1,3 @@
+We start by defining both min and max as the first value of the unsorted array. Then we iterate over the unsorted array and for each iteration we check if min > the current value then we replace min with the current value and for max, if max > the current value then we replace max with the current value. Once the iteration over the whole array is complete we return the tupple consisting of both (min, max)
+
+The time complexity for this algorithm is O(n) and the space complexity is O(1) as it uses constant space.
