@@ -1,5 +1,12 @@
 # perform heapsort
 def sort(arr):
+    """
+    Sorting function to perform heap sort
+    Args:
+        arr(list): list to sort using heap.
+    Return:
+        None: As in place sorting is done
+    """
     arr_len = len(arr)
 
     for i in range(arr_len - 1, -1, -1):
@@ -12,8 +19,8 @@ def sort(arr):
 def heapification(arr, n, i):
     """
     :param: arr - array for heapification
-    n -- number of elements
-    i -- index of the current element
+    n(int): number of elements
+    i(int): index of the current element
     """
     for i in range(1, i + 1):
         # Perform heapify
@@ -37,7 +44,7 @@ def rearrange_digits(input_list):
        (int),(int): Two maximum sums
     """
     # check if input list is empty
-    if len(input_list) == 0:
+    if len(input_list) <= 1:
         return []
 
     # perform heapsort
@@ -46,7 +53,6 @@ def rearrange_digits(input_list):
     num_1 = list()
     num_2 = list()
     n = len(input_list)
-
 
     # If the no. of digits is odd, then set the first digit of the first number as
     if n % 2 == 1:
@@ -77,4 +83,5 @@ def test_function(test_case):
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
-test_function([[], []]) # empty array as input and output should be []
+test_function([[], []])  # empty array as input and output should be []
+test_function([[1], []]) # with only one element we cannot create two maximum sums.

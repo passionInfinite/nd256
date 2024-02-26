@@ -13,14 +13,17 @@ def sort_012(input_list):
 
         if input_list[j] == 0:
             input_list[i], input_list[j] = input_list[j], input_list[i]
+            # increment i and j as their position is swapped correctly.
             i += 1
             j += 1
 
         elif input_list[j] == 1:
+            # increment j as it is having correct value of 1.
             j += 1
 
         else:
             input_list[j], input_list[k] = input_list[k], input_list[j]
+            # decrement k as the value at k is 2 and swapped/set correctly at k index.
             k -= 1
 
     return input_list
@@ -44,3 +47,7 @@ test_function([1, 2, 0]) # all three position needs swapping
 test_function([0, 1, 2]) # by default sorted
 
 test_function([2, 1, 0]) # needs sorting for first and last only
+
+test_function([0]) # should pass even if only zero is there
+
+test_function([]) # should pass even if the array is empty

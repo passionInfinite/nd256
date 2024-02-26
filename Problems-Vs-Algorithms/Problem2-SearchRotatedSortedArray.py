@@ -1,4 +1,13 @@
 def find_pivot(input_list, left, right):
+    """
+    find pivot where the array is rotated
+    Args:
+       input_list(list): list of rotated integers
+       left(int): left index ptr
+       right(int): right index ptr
+    Returns:
+       int: Pivot of the index where the array is rotated.
+    """
     # if the search is exhausted that means the roatation has never happened.
     if right < left:
         return -1
@@ -8,19 +17,32 @@ def find_pivot(input_list, left, right):
 
     mid = (left + right) // 2
 
+    # check if mid is less then the right ptr and the value of mid index in input is greater than the value of mid+1 in input_list.Return mid
     if mid < right and input_list[mid] > input_list[mid+1]:
         return mid
-
+    # check if mid is greater then the left ptr and the value of mid index in input is less than the value of mid-1 in input_list. Return mid-1
     if mid > left and input_list[mid] < input_list[mid - 1]:
         return mid - 1
 
+    # check if the value of element at index left ptr and mid ptr then continue finding the pivot in left to mid-1
     if input_list[left] >= input_list[mid]:
         return find_pivot(input_list, left, mid - 1)
+
+    # otherwise continue finding pivot in mid+1 to right
     return find_pivot(input_list, mid+1, right)
 
 
 def binary_search(input_list, left, right, number):
-
+    """
+    Performs binary search within the input list.
+    Args:
+       input_list(list): list of rotated integers
+       left(int): left index ptr
+       right(int): right index ptr
+       number: target to check against for search range
+    Returns:
+       int: Pivot of the index where the array is rotated.
+    """
     if left > right:
         return -1
 
@@ -34,7 +56,6 @@ def binary_search(input_list, left, right, number):
         return mid
 
 
-
 def rotated_array_search(input_list, number):
     """
     Find the index by searching in a rotated sorted array
@@ -46,7 +67,10 @@ def rotated_array_search(input_list, number):
     """
     # find pivot index where the rotation has happended
     pivotIndex = find_pivot(input_list, 0, len(input_list) - 1)
-    
+
+    if pivotIndex == -1:
+        return pivotIndex
+
     # once pivot index is found check if that element at that index is the target number.
     if input_list[pivotIndex] == number:
         return pivotIndex
@@ -81,3 +105,6 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[], -1])  # if array is empty return should be -1
+# if array is not rotated return should be -1
+test_function([[1, 2, 3, 5, 8, 7, 6], -1])
